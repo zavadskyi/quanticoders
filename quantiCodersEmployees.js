@@ -133,3 +133,4 @@ const invitedEmployees = (m) => {
 };
 
 console.log(invitedEmployees(0.1));
+console.log(invitedEmployees(0.25));
