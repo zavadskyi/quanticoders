@@ -83,22 +83,7 @@ const prices = {
   water: 1,
   milk: 1.5,
 };
-// add total price to each employees for his drinks
-const addTotalPriceToEmployees = (arr, obj) => {
-  const pricePerServingKeys = Object.keys(obj);
-  return arr.map((employee) => {
-    let total = 0;
-
-    employee.drinks.forEach((drink) => {
-      pricePerServingKeys.forEach((key) => {
-        if (drink === key) {
-          total += obj[key];
-        }
-      });
-    });
-    return { ...employee, total };
-  });
-};
+ 
 //get price per serving
 const pricePerServing = (recipes) => {
   let pricePerOne = {};
@@ -113,6 +98,22 @@ const pricePerServing = (recipes) => {
   }
 
   return pricePerOne;
+};
+// add total price to each employees for his drinks
+const addTotalPriceToEmployees = (arr, obj) => {
+  const pricePerServingKeys = Object.keys(obj);
+
+  return arr.map((employee) => {
+    let total = 0;
+    employee.drinks.forEach((drink) => {
+      pricePerServingKeys.forEach((key) => {
+        if (drink === key) {
+          total += obj[key];
+        }
+      });
+    });
+    return { ...employee, total };
+  });
 };
 
 const invitedEmployees = (m) => {
